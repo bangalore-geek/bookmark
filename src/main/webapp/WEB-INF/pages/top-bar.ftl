@@ -52,23 +52,23 @@
 
         <a data-toggle="collapse" class="nav-header collapsed" href="#dashboard-menu"><i class="icon-dashboard"></i>Dashboard</a>
         <ul class="nav nav-list collapse" id="dashboard-menu" style="height: 0px;">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="${rc.getContextPath()}/bookmark.html">My Bookmark</a></li>
+            <li><a href="${rc.getContextPath()}/index">Home</a></li>
+            <li><a href="${rc.getContextPath()}/bookmark">My Bookmark</a></li>
         </ul>
 
         <a data-toggle="collapse" class="nav-header" href="#accounts-menu"><i class="icon-briefcase"></i>Settings</a>
         <ul class="nav nav-list collapse" id="accounts-menu">
-            <li><a href="sign-in.html">Application Setting</a></li>
-            <li><a href="sign-up.html">Import Bookmark</a></li>
-            <li><a href="reset-password.html">Export Bookark</a></li>
-            <li><a href="reset-password.html">Perform Cleanup</a></li>
+            <li><a href="${rc.getContextPath()}/settings">Application Setting</a></li>
+            <li><a href="${rc.getContextPath()}/import">Import Bookmark</a></li>
+            <li><a href="${rc.getContextPath()}/export">Export Bookark</a></li>
+            <li><a href="${rc.getContextPath()}/cleanup">Perform Cleanup</a></li>
         </ul>
 
         <a data-toggle="collapse" class="nav-header collapsed" href="#error-menu"><i class="icon-exclamation-sign"></i>Account Option <i class="icon-chevron-up"></i></a>
         <ul class="nav nav-list collapse" id="error-menu">
-            <li><a href="403.html">Manage Your Account</a></li>
-            <li><a href="404.html">Change Password</a></li>
-            <li><a href="500.html">Privacy Setting</a></li>
-            <li><a href="503.html">Delete Account</a></li>
+            <li><a href="${rc.getContextPath()}/manage-account">Manage Your Account</a></li>
+            <li><a href="${rc.getContextPath()}/changepassword">Change Password</a></li>
+            <li><a href="${rc.getContextPath()}/privacy">Privacy Setting</a></li>
+            <li><a href="${rc.getContextPath()}/deleteaccount">Delete Account</a></li>
         </ul>
 </div>

@@ -33,6 +33,8 @@ import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
+import com.defysope.filters.UserValidator;
+
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
@@ -163,8 +165,10 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		return localeChangeInterceptor;
 	}
 
+	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
+		registry.addInterceptor(new UserValidator());
 	}
 
 	@Override
