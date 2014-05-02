@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Sign in-Bookmark Manager</title>
+    <title>Sign up-Bookmark Manager</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -65,27 +65,22 @@
     
 	<div class="row-fluid">
 	    <div class="dialog">
-	    	<#if error?exists>
-	   		 <div class="alert alert-danger">
-        		<button data-dismiss="alert" class="close" type="button"><i class="icon-close"></i></button>
-        		<strong>Oops !</strong> user name or password is incorrect.
-   			 </div>
-   			</#if> 
 	        <div class="block">
-	            <p class="block-heading">Sign In</p>
+	            <p class="block-heading">Sign up</p>
 	            <div class="block-body">
 	                <form class="form-signin" method="post" action="j_spring_security_check">
 	                    <label>Username</label>
-	                    <input type="text" class="span12" name="j_username">
+	                    <input type="text" class="span12" name="userName">
 	                    <label>Password</label>
-	                    <input type="password" class="span12" name="j_password">
-	                    <button class="btn btn-primary pull-right" type="submit">Sign in</button>
-	                    <label class="remember-me"><input type="checkbox"> Remember me</label>
+	                    <input type="password" class="span12" name="password">
+	                    <label>Email</label>
+	                    <input type="password" class="span12" name="email">
+	                    <button class="btn btn-primary pull-right" type="submit">Sign up</button>
 	                    <div class="clearfix"></div>
 	                </form>
 	            </div>
 	        </div>
-	        <p class="pull-right" style=""><a href="${rc.getContextPath()}/signup" >Create an account</a></p>
+	        <p class="pull-right" style=""><a href="${rc.getContextPath()}/user-login.html">Login</a></p>
 	        <p><a href="${rc.getContextPath()}/reset-password">Forgot your password?</a></p>
 	    </div>
    </div>

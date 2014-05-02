@@ -1,21 +1,42 @@
+CREATE TABLE tblcountry(
+	cid serial not null,
+	description character varying(200),
+	CONSTRAINT tblcountry_pkey PRIMARY KEY (cid )
+)
+
+
+CREATE TABLE tblstate(
+	cid serial not null,
+	description character varying(200),
+	country integer references tblcountry(cid),
+	CONSTRAINT tblstate_pkey PRIMARY KEY (cid )
+)
+
 CREATE TABLE tbluser
 (
   cid serial NOT NULL,
-  name character varying(200),
-  isadmin boolean NOT NULL,
+  userName character varying(200),
   password character varying(100),
+  briefcasePassword character varying(100),
   email character varying(100),
-  lastloginfaildate timestamp without time zone,
-  lastlogintime timestamp without time zone,
-  ispwdexpired boolean DEFAULT false,
-  prevlogintime timestamp without time zone,
   issystemdisabled boolean DEFAULT false,
-  ipaddress character varying(30),
-  issystempassword boolean DEFAULT false,
-  signupuser boolean DEFAULT false,
-  deleted boolean DEFAULT false,
   CONSTRAINT tbluser_pkey PRIMARY KEY (cid ),
-  CONSTRAINT tbluser_name_key UNIQUE (name )
+  CONSTRAINT tbluser_userName_key UNIQUE (userName )
+)
+
+CREATE TABLE tbluserdetails
+(
+ cid serial not null,
+ userId integer references tbluser(cid),
+ firstName character varying(200),
+ lastName character varying(200),
+ dob timestamp without time zone,
+ country  integer references tblcountry(cid),
+ state  integer references tblstate(cid),
+ createdDate  timestamp without time zone,
+ modifiedDate  timestamp without time zone,
+ lastLoginDate  timestamp without time zone,
+ CONSTRAINT tbluserdetails_pkey PRIMARY KEY (cid )
 )
 
 CREATE TABLE tblrole
@@ -83,11 +104,11 @@ CREATE TABLE tbl_role_accessrights
 
 
 
-insert into tbluser(name,isadmin,password,email) values('superuser',true,'sa','rathordeepak1985@yahoo.in')
+insert into tbluser(username,password,email) values('deepak','sa','rathordeepak1985@yahoo.in')
 
-insert into tbluser(name,isadmin,password,email) values('manager',true,'sa','rathordeepak1985@yahoo.in')
+insert into tbluser(username,password,email) values('arun','sa','rathordeepak1985@yahoo.in')
 
-insert into tbluser(name,isadmin,password,email) values('employee',true,'sa','rathordeepak1985@yahoo.in')
+insert into tbluser(username,password,email) values('akash','sa','rathordeepak1985@yahoo.in')
 
 insert into tblrole(name,description) values('admin','Administrator')
 
@@ -97,7 +118,7 @@ insert into tblrole(name,description) values('employee','Employee')
 
 insert into tbl_user_roles(userid,roleid) values(1,1);
 
-insert into tbl_user_roles(userid,roleid) values(2,2);
+insert into tbl_user_roles(userid,roleid) values(2,1);
 
 insert into tbl_user_roles(userid,roleid) values(3,3);
 

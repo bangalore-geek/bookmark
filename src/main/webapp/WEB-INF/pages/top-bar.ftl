@@ -64,7 +64,7 @@
             <li><a href="${rc.getContextPath()}/cleanup">Perform Cleanup</a></li>
         </ul>
 
-        <a data-toggle="collapse" class="nav-header collapsed" href="#error-menu"><i class="icon-exclamation-sign"></i>Account Option <i class="icon-chevron-up"></i></a>
+        <a data-toggle="collapse" class="nav-header collapsed" href="#error-menu"><i class="icon-exclamation-sign"></i>Account Option</a>
         <ul class="nav nav-list collapse" id="error-menu">
             <li><a href="${rc.getContextPath()}/manage-account">Manage Your Account</a></li>
             <li><a href="${rc.getContextPath()}/changepassword">Change Password</a></li>

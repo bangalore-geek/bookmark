@@ -26,7 +26,7 @@ public class SecurityNavigation {
 	public ModelAndView invalidLogin() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("error", true);
-		return new ModelAndView("access-denied");
+		return new ModelAndView("login-form", map);
 	}
 
 	@RequestMapping(value = "/success-login", method = RequestMethod.GET)

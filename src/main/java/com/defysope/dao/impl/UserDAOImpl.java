@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 	@SuppressWarnings("unchecked")
 	public User getUser(String login) {
 		List<User> userList = new ArrayList<User>();
-		Query query = openSession().createQuery("from com.defysope.model.User u where u.name = :login");
+		Query query = openSession().createQuery("from com.defysope.model.User u where u.userName = :login");
 		query.setParameter("login", login);
 		userList = query.list();
 		if (userList.size() > 0)

@@ -1,7 +1,5 @@
 package com.defysope.model;
 
-import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,33 +22,15 @@ public class User {
 	@Column(name = "cid")
 	private Integer id;
 
-	private String name;
+	private String userName;
 
 	private String password;
 
-	private boolean isAdmin;
-
 	private String email;
 
-	@Column(name = "lastloginfaildate")
-	private Date lastLoginFailDate;
-
-	@Column(name = "lastlogintime")
-	private Date lastLoginTime;
-
-	private boolean isPwdExpired;
-
-	@Column(name = "prevlogintime")
-	private Date prevLoginTime;
+	private String briefcasePassword;
 
 	private boolean isSystemDisabled;
-
-	@Column(name = "ipaddress")
-	private String ipAddress;
-
-	private boolean signupUser;
-
-	private boolean deleted;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinTable(name = "tbl_user_roles", joinColumns = { @JoinColumn(name = "userid", referencedColumnName = "cid") }, inverseJoinColumns = { @JoinColumn(name = "roleid", referencedColumnName = "cid") })
@@ -64,14 +44,6 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -80,12 +52,28 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isAdmin() {
-		return isAdmin;
+	public boolean isSystemDisabled() {
+		return isSystemDisabled;
 	}
 
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public void setSystemDisabled(boolean isSystemDisabled) {
+		this.isSystemDisabled = isSystemDisabled;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public String getEmail() {
@@ -96,76 +84,12 @@ public class User {
 		this.email = email;
 	}
 
-	public Date getLastLoginFailDate() {
-		return lastLoginFailDate;
+	public String getBriefcasePassword() {
+		return briefcasePassword;
 	}
 
-	public void setLastLoginFailDate(Date lastLoginFailDate) {
-		this.lastLoginFailDate = lastLoginFailDate;
-	}
-
-	public Date getLastLoginTime() {
-		return lastLoginTime;
-	}
-
-	public void setLastLoginTime(Date lastLoginTime) {
-		this.lastLoginTime = lastLoginTime;
-	}
-
-	public boolean isPwdExpired() {
-		return isPwdExpired;
-	}
-
-	public void setPwdExpired(boolean isPwdExpired) {
-		this.isPwdExpired = isPwdExpired;
-	}
-
-	public Date getPrevLoginTime() {
-		return prevLoginTime;
-	}
-
-	public void setPrevLoginTime(Date prevLoginTime) {
-		this.prevLoginTime = prevLoginTime;
-	}
-
-	public boolean isSystemDisabled() {
-		return isSystemDisabled;
-	}
-
-	public void setSystemDisabled(boolean isSystemDisabled) {
-		this.isSystemDisabled = isSystemDisabled;
-	}
-
-	public String getIpAddress() {
-		return ipAddress;
-	}
-
-	public void setIpAddress(String ipAddress) {
-		this.ipAddress = ipAddress;
-	}
-
-	public boolean isSignupUser() {
-		return signupUser;
-	}
-
-	public void setSignupUser(boolean signupUser) {
-		this.signupUser = signupUser;
-	}
-
-	public boolean isDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(boolean deleted) {
-		this.deleted = deleted;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
+	public void setBriefcasePassword(String briefcasePassword) {
+		this.briefcasePassword = briefcasePassword;
 	}
 
 }
