@@ -63,19 +63,19 @@
         </div>
     </div>
     
-	<div class="row-fluid">
+	<div class="row-fluid" id="mainDiv">
 	    <div class="dialog">
 	        <div class="block">
 	            <p class="block-heading">Sign up</p>
 	            <div class="block-body">
-	                <form class="form-signin" method="post" action="j_spring_security_check">
+	                <form class="form-signin">
 	                    <label>Username</label>
 	                    <input type="text" class="span12" name="userName">
 	                    <label>Password</label>
 	                    <input type="password" class="span12" name="password">
 	                    <label>Email</label>
-	                    <input type="password" class="span12" name="email">
-	                    <button class="btn btn-primary pull-right" type="submit">Sign up</button>
+	                    <input type="email" class="span12" name="email">
+	                    <button class="btn btn-primary pull-right submit" type="button">Sign up</button>
 	                    <div class="clearfix"></div>
 	                </form>
 	            </div>
@@ -86,6 +86,35 @@
    </div>
 
 <script src="${rc.getContextPath()}/resources/js/core/bootstrap.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+			jQuery('button.submit').on('click', function() {
+				var obj = {
+							userName : jQuery('input[name="userName"]').val(),
+							password : jQuery('input[name="password"]').val(),
+							email : jQuery('input[name="email"]').val()
+						};
+				jQuery.ajax({
+						url : '/bookmark/signup',
+						type: "POST",
+    				    contentType : 'application/json',
+     					dataType : 'json',
+						processData : false,
+						data : JSON.stringify(obj) 
+					}).done(function(data) {
+						if (data.success) {
+							alert('Account Created');
+						} else {
+							alert('Account Not Created');
+						}
+		
+					});
+			})
+		});
+	
+	
+</script>
 </body>
 </html>
 

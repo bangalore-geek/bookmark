@@ -59,8 +59,20 @@
     
     <div class="navbar">
         <div class="navbar-inner">
-                <a class="brand" href="index.html"><span class="first">Bookmark</span> <span class="second">Manager</span></a>
+              <a class="brand" href="index.html"><span class="first">Bookmark</span> <span class="second">Manager</span></a>
+	          <ul class="nav pull-right">
+	            <li class="dropdown">
+	                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Language<i class="caret"></i></a>
+	                <ul class="dropdown-menu">
+	                    <li><a href="?lang=en">English</a></li>
+						<li><a href="?lang=de">German</a></li>
+						<li><a href="?lang=dv">Devehi</a></li>
+						<li><a href="?lang=de">Hindi</a></li>
+	                </ul>
+	            </li>
+	        </ul>
         </div>
+		
     </div>
     
 	<div class="row-fluid">
@@ -75,12 +87,12 @@
 	            <p class="block-heading">Sign In</p>
 	            <div class="block-body">
 	                <form class="form-signin" method="post" action="j_spring_security_check">
-	                    <label>Username</label>
+	                    <label><@spring.message "login.label.username"/></label>
 	                    <input type="text" class="span12" name="j_username">
-	                    <label>Password</label>
+	                    <label><@spring.message "login.label.password"/></label>
 	                    <input type="password" class="span12" name="j_password">
-	                    <button class="btn btn-primary pull-right" type="submit">Sign in</button>
-	                    <label class="remember-me"><input type="checkbox"> Remember me</label>
+	                    <button class="btn btn-primary pull-right" type="submit"><@spring.message "login.label.signin"/></button>
+	                    <label class="remember-me"><input type="checkbox"> <@spring.message "login.label.rememberme"/></label>
 	                    <div class="clearfix"></div>
 	                </form>
 	            </div>

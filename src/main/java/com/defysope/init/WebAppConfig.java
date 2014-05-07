@@ -1,6 +1,7 @@
 package com.defysope.init;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
@@ -16,6 +17,9 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
@@ -124,15 +128,16 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		return fvr;
 	}
 
-	@Bean
-	public ContentNegotiatingViewResolver contentNegotiatingViewResolver() {
-		ContentNegotiatingViewResolver contentNegotiatingViewResolver = new ContentNegotiatingViewResolver();
-		Map<String, String> mediaTypes = new HashMap<String, String>();
-		mediaTypes.put("html", "text/html");
-		mediaTypes.put("json", "application/json");
-		contentNegotiatingViewResolver.setMediaTypes(mediaTypes);
-		return contentNegotiatingViewResolver;
-	}
+	/*
+	 * @Bean public ContentNegotiatingViewResolver
+	 * contentNegotiatingViewResolver() { ContentNegotiatingViewResolver
+	 * contentNegotiatingViewResolver = new ContentNegotiatingViewResolver();
+	 * Map<String, String> mediaTypes = new HashMap<String, String>();
+	 * mediaTypes.put("html", "text/html"); mediaTypes.put("json",
+	 * "application/json");
+	 * contentNegotiatingViewResolver.setMediaTypes(mediaTypes); return
+	 * contentNegotiatingViewResolver; }
+	 */
 
 	@Bean
 	public LocaleResolver localeResolver() {
@@ -176,4 +181,11 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/resources/**").addResourceLocations(
 				"/resources/");
 	}
+
+	/*@Override
+	public void configureMessageConverters(
+			List<HttpMessageConverter<?>> converters) {
+		converters.add(new MappingJacksonHttpMessageConverter());
+		super.configureMessageConverters(converters);
+	}*/
 }
