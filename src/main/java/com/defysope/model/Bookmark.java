@@ -31,6 +31,7 @@ public class Bookmark {
 	private Boolean confidential = false;
 	private Integer parentId;
 	private byte[] image;
+	private String fileName;
 
 	public int getId() {
 		return id;
@@ -134,6 +135,14 @@ public class Bookmark {
 
 	public void setImage(byte[] image) {
 		this.image = image;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }

@@ -24,6 +24,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -182,10 +184,17 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 				"/resources/");
 	}
 
-	/*@Override
-	public void configureMessageConverters(
-			List<HttpMessageConverter<?>> converters) {
-		converters.add(new MappingJacksonHttpMessageConverter());
-		super.configureMessageConverters(converters);
-	}*/
+	@Bean
+	public MultipartResolver multipartResolver() {
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		multipartResolver.setMaxUploadSize(5 * 1024 * 1024);
+		return multipartResolver;
+	}
+
+	/*
+	 * @Override public void configureMessageConverters(
+	 * List<HttpMessageConverter<?>> converters) { converters.add(new
+	 * MappingJacksonHttpMessageConverter());
+	 * super.configureMessageConverters(converters); }
+	 */
 }

@@ -102,6 +102,23 @@ CREATE TABLE tbl_role_accessrights
   CONSTRAINT uq_tbl_role_accessrights_role_feature UNIQUE (roleid , featureid )
 )
 
+create table tblbookmark(
+ cid serial primary key,
+ title varchar(500),
+ description varchar(5000),
+ url varchar(5000),
+ faviconUrl varchar(5000),
+ postedDate timestamp without time zone,
+ modifiedDate timestamp without time zone,
+ userId integer references tbluser(cid),
+ softDeleted boolean default false,
+ allowPublic boolean default false,
+ confidential boolean default false,
+ parentId  integer,
+ image bytea,
+ fileName varchar(500)
+)
+
 
 
 insert into tbluser(username,password,email) values('deepak','sa','rathordeepak1985@yahoo.in')

@@ -1,10 +1,13 @@
 package com.defysope.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.defysope.dao.BookmarkUtilsDao;
+import com.defysope.model.Bookmark;
 import com.defysope.model.User;
 import com.defysope.service.BookmarkUtils;
 
@@ -20,4 +23,8 @@ public class BookmarkUtilsImpl implements BookmarkUtils {
 		return dao.getLoggedInUser();
 	}
 
+	@Override
+	public List<Bookmark> getBookmarkList(Integer userId) {
+		return dao.getBookmarkList(userId);
+	}
 }

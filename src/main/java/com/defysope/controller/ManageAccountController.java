@@ -14,12 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ManageAccountController {
-	
+
 	@RequestMapping(value = "/manage-account", method = RequestMethod.GET)
-	@Secured("ROLE_PG_HOME")
-	public ModelAndView getBookmarkListPage(HttpServletRequest request,HttpServletResponse response){
-		Map<String, Object> model = new HashMap<String,Object>();
-		return new ModelAndView("manageaccount",model);
+	@Secured("ROLE_PG_HOMEE")
+	public ModelAndView getBookmarkListPage(HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		return new ModelAndView("manageaccount", model);
 	}
 
 }

@@ -12,8 +12,6 @@ public class UserValidator implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		
-		System.out.println("after complete");
 
 	}
 
@@ -21,13 +19,13 @@ public class UserValidator implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object arg2, ModelAndView arg3)
 			throws Exception {
-		System.out.println("post complete");
+
 	}
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object arg2) throws Exception {
-		System.out.println("before complete");
+
 		return true;
 	}
 

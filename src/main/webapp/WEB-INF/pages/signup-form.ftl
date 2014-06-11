@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${rc.getContextPath()}/resources/css/font-awesome.css">
 
     <script src="${rc.getContextPath()}/resources/js/core/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="${rc.getContextPath()}/resources/js/plugin/bootbox.js" type="text/javascript"></script>
 
     <!-- Demo page code -->
 
@@ -104,13 +105,14 @@
 						data : JSON.stringify(obj) 
 					}).done(function(data) {
 						if (data.success) {
-							alert('Account Created');
+							bootbox.alert('Account Created');
 						} else {
-							alert('Account Not Created');
+							bootbox.alert('Account Not Created');
 						}
 		
 					});
 			})
+			
 		});
 	
 	

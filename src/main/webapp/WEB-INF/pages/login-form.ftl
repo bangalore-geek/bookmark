@@ -78,7 +78,7 @@
 	<div class="row-fluid">
 	    <div class="dialog">
 	    	<#if error?exists>
-	   		 <div class="alert alert-danger">
+	   		 <div class="alert alert-error">
         		<button data-dismiss="alert" class="close" type="button"><i class="icon-close"></i></button>
         		<strong>Oops !</strong> user name or password is incorrect.
    			 </div>
