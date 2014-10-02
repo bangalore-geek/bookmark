@@ -36,12 +36,13 @@ public class Navigation implements BeanPostProcessor,
 	}
 
 	@Override
-	public void setApplicationContext(ApplicationContext arg0)
+	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
 		this.applicationContext = applicationContext;
 
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		try {

@@ -34,6 +34,7 @@ public class PublicManagerImpl implements PublicManager {
 
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void removeObject(Class clazz, Serializable id) {
 		publicDao.removeObject(clazz, id);

@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.defysope.model.Role;
-import com.defysope.model.User;
 import com.defysope.service.PublicManager;
 import com.defysope.service.RoleService;
 

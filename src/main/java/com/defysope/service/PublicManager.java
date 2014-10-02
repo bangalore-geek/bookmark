@@ -34,6 +34,7 @@ public interface PublicManager {
 	 * @param id
 	 *            the identifier of the class
 	 */
+	@SuppressWarnings("rawtypes")
 	public void removeObject(Class clazz, Serializable id);
 
 	/**
