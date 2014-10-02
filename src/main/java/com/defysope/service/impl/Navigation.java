@@ -36,7 +36,7 @@ public class Navigation implements BeanPostProcessor,
 	}
 
 	@Override
-	public void setApplicationContext(ApplicationContext applicationContext)
+	public void setApplicationContext(ApplicationContext arg0)
 			throws BeansException {
 		this.applicationContext = applicationContext;
 

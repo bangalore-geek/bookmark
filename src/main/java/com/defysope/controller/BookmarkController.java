@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -19,11 +20,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.defysope.model.Attachment;
 import com.defysope.model.Bookmark;
+import com.defysope.model.User;
 import com.defysope.service.BookmarkUtils;
 import com.defysope.service.PublicManager;
+import com.defysope.utils.logging.Log;
 
 @Controller
 public class BookmarkController {
+
+	@Log
+	Logger logger;
 
 	@Autowired
 	private PublicManager manager;
@@ -36,7 +42,9 @@ public class BookmarkController {
 	public ModelAndView getBookmarkListPage(HttpServletRequest request,
 			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
-		model.put("bookmarkList", bookmarkUtils.getBookmarkList(bookmarkUtils.getLoggedInUser().getId()));
+		User user = bookmarkUtils.getLoggedInUser();
+		logger.debug("Logged in user {} ", user.getUserName());
+		model.put("bookmarkList", bookmarkUtils.getBookmarkList(user.getId()));
 		return new ModelAndView("bookmarklist", model);
 	}
 

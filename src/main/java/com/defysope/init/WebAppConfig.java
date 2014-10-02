@@ -33,6 +33,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 import com.defysope.filters.UserValidator;
+import com.defysope.utils.logging.DefysopeLogger;
 
 @Configuration
 @EnableWebMvc
@@ -182,6 +183,11 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
 		multipartResolver.setMaxUploadSize(5 * 1024 * 1024);
 		return multipartResolver;
+	}
+
+	@Bean
+	public DefysopeLogger logginInjector() {
+		return new DefysopeLogger();
 	}
 
 	/*
