@@ -10,4 +10,6 @@ public interface BookmarkUtilsDao {
 	public User getLoggedInUser();
 
 	public List<Bookmark> getBookmarkList(Integer userId);
+	
+	public Page getBookarkList(int page, int rows);
 }

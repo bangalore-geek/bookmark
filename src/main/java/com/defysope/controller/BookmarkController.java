@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.defysope.dao.Page;
 import com.defysope.model.Attachment;
 import com.defysope.model.Bookmark;
 import com.defysope.model.User;
@@ -44,6 +45,10 @@ public class BookmarkController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		User user = bookmarkUtils.getLoggedInUser();
 		logger.debug("Logged in user {} ", user.getUserName());
+		Page page = bookmarkUtils.getBookarkList(0, 15);
+		page.getTotalNumberOfElements();
+		page.getPageSize();
+		page.getThisPageElements();
 		model.put("bookmarkList", bookmarkUtils.getBookmarkList(user.getId()));
 		return new ModelAndView("bookmarklist", model);
 	}

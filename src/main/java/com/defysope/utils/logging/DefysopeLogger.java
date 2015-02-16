@@ -19,7 +19,6 @@ public class DefysopeLogger implements BeanPostProcessor {
 	public Object postProcessBeforeInitialization(final Object bean,
 			String beanName) throws BeansException {
 		ReflectionUtils.doWithFields(bean.getClass(), new FieldCallback() {
-			@SuppressWarnings("unchecked")
 			public void doWith(Field field) throws IllegalArgumentException,
 					IllegalAccessException {
 				ReflectionUtils.makeAccessible(field);
