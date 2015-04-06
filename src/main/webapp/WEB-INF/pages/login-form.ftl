@@ -18,23 +18,16 @@
 
     <!-- Demo page code -->
 
-    <style type="text/css">
-        #line-chart {
-            height:300px;
-            width:800px;
-            margin: 0px auto;
-            margin-top: 1em;
-        }
-        .brand { font-family: georgia, serif; }
-        .brand .first {
-            color: #ccc;
-            font-style: italic;
-        }
-        .brand .second {
-            color: #fff;
-            font-weight: bold;
-        }
-    </style>
+<style type="text/css">
+    .first {
+        color: #ccc;
+        font-style: italic;
+    }
+    .second {
+        color: #fff;
+        font-weight: bold;
+    }
+</style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -56,14 +49,22 @@
   <!--[if (gt IE 9)|!(IE)]><!--> 
   <body class=""> 
   <!--<![endif]-->
-    
-    <div class="navbar">
-        <div class="navbar-inner">
-              <a class="brand" href="index.html"><span class="first">Bookmark</span> <span class="second">Manager</span></a>
-	          <ul class="nav pull-right">
+  
+ <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand"><span class="first">Bookmark</span> <span class="second">Manager</span></a>
+            <ul class="nav navbar-nav navbar-right">
 	            <li class="dropdown">
 	                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Language<i class="caret"></i></a>
-	                <ul class="dropdown-menu">
+	                <ul class="dropdown-menu" role="menu">
 	                    <li><a href="?lang=en">English</a></li>
 						<li><a href="?lang=de">German</a></li>
 						<li><a href="?lang=dv">Devehi</a></li>
@@ -72,35 +73,45 @@
 	            </li>
 	        </ul>
         </div>
-		
-    </div>
+	</div><!-- /.container-fluid -->
+ </nav>
     
-	<div class="row-fluid">
-	    <div class="dialog">
-	    	<#if error?exists>
-	   		 <div class="alert alert-error">
-        		<button data-dismiss="alert" class="close" type="button"><i class="icon-close"></i></button>
-        		<strong>Oops !</strong> user name or password is incorrect.
-   			 </div>
-   			</#if> 
-	        <div class="block">
-	            <p class="block-heading">Sign In</p>
-	            <div class="block-body">
-	                <form class="form-signin" method="post" action="j_spring_security_check">
-	                    <label><@spring.message "login.label.username"/></label>
-	                    <input type="text" class="span12" name="j_username">
-	                    <label><@spring.message "login.label.password"/></label>
-	                    <input type="password" class="span12" name="j_password">
-	                    <button class="btn btn-primary pull-right" type="submit"><@spring.message "login.label.signin"/></button>
-	                    <label class="remember-me"><input type="checkbox"> <@spring.message "login.label.rememberme"/></label>
-	                    <div class="clearfix"></div>
-	                </form>
-	            </div>
-	        </div>
-	        <p class="pull-right" style=""><a href="${rc.getContextPath()}/signup" >Create an account</a></p>
-	        <p><a href="${rc.getContextPath()}/reset-password">Forgot your password?</a></p>
-	    </div>
-   </div>
+   
+    
+<div class="row-fluid">
+    <div class="dialog">
+    	<#if error?exists>
+   		 <div class="alert alert-error">
+    		<button data-dismiss="alert" class="close" type="button"><i class="icon-close"></i></button>
+    		<strong>Oops !</strong> user name or password is incorrect.
+		 </div>
+		</#if> 
+        <div class="block">
+            <p class="block-heading">Sign In</p>
+            <div class="block-body">
+                <form class="form-signin" method="post" action="j_spring_security_check">
+                	<div class="form-group">
+    					<label><@spring.message "login.label.username"/></label>
+    					<div>
+    						<input type="text" class="form-control" name="j_username" placeholder="User name">
+      					</div>
+  					</div>
+  					<div class="form-group">
+    					<label><@spring.message "login.label.password"/></label>
+    					<div>
+    						<input type="password" class="form-control" name="j_password" placeholder="Password">
+      					</div>
+  					</div>
+                    <button class="btn btn-primary pull-right" type="submit"><@spring.message "login.label.signin"/></button>
+                    <label class="remember-me"><input type="checkbox"> <@spring.message "login.label.rememberme"/></label>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        <p class="pull-right" style=""><a href="${rc.getContextPath()}/signup" >Create an account</a></p>
+        <p><a href="${rc.getContextPath()}/reset-password">Forgot your password?</a></p>
+    </div>
+  </div>
 
 <script src="${rc.getContextPath()}/resources/js/core/bootstrap.js"></script>
 </body>

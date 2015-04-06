@@ -1,28 +1,20 @@
-$(function() {
-	$.Class('defysope.bookmarklist.Main', {}, {
-				init : function(el, options) {
-					this.el = $(el);
-					$.extend(this.options, options);
-					$('#saveBtn', this.el).on('click',
-							this.callback('saveBookmark'))
-				},
+defysope.controller('BookmarkListCtrl', ['$scope', '$http',
+				function($scope, $http) {
 
-				saveBookmark : function() {
-					$('form.bookmark').ajaxSubmit({
-								url : '/bookmark/save',
-								dataType : "json",
-								success : function(data) {
-									if (data.success) {
-										bootbox
-												.alert("Product Added Successfully.");
-									} else {
-										l
-										bootbox
-												.alert("Error while saving product.");
-									}
-								}
-							});
+					$scope.list = [{
+								title : 'Deepak',
+								desc : 'rathor'
+							}, {
+								title : 'akash',
+								desc : 'prasad'
+							}, {
+								title : 'Bharat',
+								desc : 'rathor'
+							}]
 
-				}
-			});
-});
+					$scope.status = {
+						isFirstOpen : true,
+						isFirstDisabled : false
+					};
+
+				}]);

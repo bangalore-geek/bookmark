@@ -1,50 +1,27 @@
   <style type="text/css">
-    #line-chart {
-        height:300px;
-        width:800px;
-        margin: 0px auto;
-        margin-top: 1em;
-    }
-    .brand { font-family: georgia, serif; }
-    .brand .first {
+    .first {
         color: #ccc;
         font-style: italic;
     }
-    .brand .second {
+    .second {
         color: #fff;
         font-weight: bold;
     }
 </style>
- <div class="navbar">
-    <div class="navbar-inner">
-    	<a class="brand" href="index.html"><span class="first">Bookmark</span> <span class="second">Manager</span></a>
-        <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-            </a>
-            <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
-                    <li class="dropdown">
-                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Vincent Gabriel <i class="caret"></i>
-
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a tabindex="-1" href="profileinfo">Profile</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a tabindex="-1" href="logout">Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand"><span class="first">Bookmark</span> <span class="second">Manager</span></a>
         </div>
-    </div>
-</div>
+	</div><!-- /.container-fluid -->
+ </nav>
 <div class="sidebar-nav">
         <form class="search form-inline">
             <input type="text" placeholder="Search...">

@@ -24,6 +24,12 @@
 		</repository>
 	</repositories>
 	<dependencies>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+
 		<!-- DB related dependencies -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

@@ -8,7 +8,7 @@
 	<!--[if IE 8]>	<html class="no-js ie8 oldie ${htmlclass}" lang="en"> <![endif]-->
 	<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
 	<!--[if gt IE 8]><!--> <html class="no-js ${htmlclass}" lang="en"> <!--<![endif]-->
-	
+	</html">
 	<head>
 		<meta charset="utf-8">
 	
@@ -29,7 +29,7 @@
 
 	</head>
 	
-	<body ng-app>
+	<body  ng-app="defysope">
 		<#include "top-bar.ftl" />
 		
 		<#nested/>

@@ -19,23 +19,16 @@
 
     <!-- Demo page code -->
 
-    <style type="text/css">
-        #line-chart {
-            height:300px;
-            width:800px;
-            margin: 0px auto;
-            margin-top: 1em;
-        }
-        .brand { font-family: georgia, serif; }
-        .brand .first {
-            color: #ccc;
-            font-style: italic;
-        }
-        .brand .second {
-            color: #fff;
-            font-weight: bold;
-        }
-    </style>
+	<style type="text/css">
+	    .first {
+	        color: #ccc;
+	        font-style: italic;
+	    }
+	    .second {
+	        color: #fff;
+	        font-weight: bold;
+	    }
+	</style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -58,25 +51,67 @@
   <body class=""> 
   <!--<![endif]-->
     
-    <div class="navbar">
-        <div class="navbar-inner">
-                <a class="brand" href="index.html"><span class="first">Bookmark</span> <span class="second">Manager</span></a>
+ <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button data-target="#bs-example-navbar-collapse-9" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand"><span class="first">Bookmark</span> <span class="second">Manager</span></a>
+            <ul class="nav navbar-nav navbar-right">
+	            <li class="dropdown">
+	                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Language<i class="caret"></i></a>
+	                <ul class="dropdown-menu" role="menu">
+	                    <li><a href="?lang=en">English</a></li>
+						<li><a href="?lang=de">German</a></li>
+						<li><a href="?lang=dv">Devehi</a></li>
+						<li><a href="?lang=de">Hindi</a></li>
+	                </ul>
+	            </li>
+	        </ul>
         </div>
-    </div>
+	</div><!-- /.container-fluid -->
+ </nav>
     
 	<div class="row-fluid" id="mainDiv">
 	    <div class="dialog">
 	        <div class="block">
 	            <p class="block-heading">Sign up</p>
 	            <div class="block-body">
-	                <form class="form-signin">
-	                    <label>Username</label>
-	                    <input type="text" class="span12" name="userName">
-	                    <label>Password</label>
-	                    <input type="password" class="span12" name="password">
-	                    <label>Email</label>
-	                    <input type="email" class="span12" name="email">
-	                    <button class="btn btn-primary pull-right submit" type="button">Sign up</button>
+		            <form class="form-signin" method="post" action="j_spring_security_check">
+	                	<div class="form-group">
+	    					<label><@spring.message "signup.label.username"/></label>
+	    					<div>
+	    						<input type="text" class="form-control" name="userName" placeholder="User name">
+	      					</div>
+	  					</div>
+	  					<div class="form-group">
+	    					<label><@spring.message "signup.label.password"/></label>
+	    					<div>
+	    						<input type="password" class="form-control" name="password" placeholder="Password">
+	      					</div>
+	  					</div>
+	  					<div class="form-group">
+	    					<label><@spring.message "signup.label.email"/></label>
+	    					<div>
+	    						<input type="email" class="form-control" name="email" placeholder="Email">
+	      					</div>
+	  					</div>
+	  					<div class="form-group">
+	    					<label><@spring.message "signup.label.type"/></label>
+	    					<div>
+	    						 <div class="btn-group">
+							        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'student'">Student</label>
+							        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'freelancer'">Freelancer</label>
+							        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'corporate'">Corporate</label>
+							    </div>
+	      					</div>
+	  					</div>
+	                    <button class="btn btn-primary pull-right" type="submit"><@spring.message "signup.label.submit"/></button>
 	                    <div class="clearfix"></div>
 	                </form>
 	            </div>
